@@ -6,5 +6,5 @@ S = a - b;
 M = a * b;
 D = a / b;
 
-outputArg2 = inputArg2;
+
 end
