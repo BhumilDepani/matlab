@@ -153,5 +153,14 @@ amplitude = str2double(amplitude_string);
 frequency_string = get(handles.edit2, "String");
 frequency = str2double(frequency_string);
 
+pop_output = get(handles.popupmenu1, "Value");
+
+t = 0:0.01:2*pi*frequency;
+
+if pop_output == 2
+    y = amplitude * sin(2*pi*frequency*type)
+
+
+
 
 

@@ -22,7 +22,7 @@ function varargout = axes_plot(varargin)
 
 % Edit the above text to modify the response to help axes_plot
 
-% Last Modified by GUIDE v2.5 27-Feb-2022 10:26:32
+% Last Modified by GUIDE v2.5 27-Feb-2022 12:22:02
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -153,8 +153,15 @@ amplitude = str2double(amplitude_string);
 frequency_string = get(handles.edit2, "String");
 frequency = str2double(frequency_string);
 
-t = 0:0.01:2*pi*frequency;
+pop_output = get(handles.popupmenu1, "Value");
 
+% t = 0:0.01:2*pi*frequency;
+t = 0:0.01:1;
 
+if pop_output == 2
+    y = amplitude * sin(2*pi*frequency*t);
+else
+    y = amplitude * cos(2*pi*frequency*t);
+end
 
-
+plot(handles.axes1, t, y)
