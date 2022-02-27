@@ -1,35 +1,35 @@
-function varargout = edit_text(varargin)
-% EDIT_TEXT MATLAB code for edit_text.fig
-%      EDIT_TEXT, by itself, creates a new EDIT_TEXT or raises the existing
+function varargout = check_box(varargin)
+% CHECK_BOZ MATLAB code for check_boz.fig
+%      CHECK_BOZ, by itself, creates a new CHECK_BOZ or raises the existing
 %      singleton*.
 %
-%      H = EDIT_TEXT returns the handle to a new EDIT_TEXT or the handle to
+%      H = CHECK_BOZ returns the handle to a new CHECK_BOZ or the handle to
 %      the existing singleton*.
 %
-%      EDIT_TEXT('CALLBACK',hObject,eventData,handles,...) calls the local
-%      function named CALLBACK in EDIT_TEXT.M with the given input arguments.
+%      CHECK_BOZ('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in CHECK_BOZ.M with the given input arguments.
 %
-%      EDIT_TEXT('Property','Value',...) creates a new EDIT_TEXT or raises the
+%      CHECK_BOZ('Property','Value',...) creates a new CHECK_BOZ or raises the
 %      existing singleton*.  Starting from the left, property value pairs are
-%      applied to the GUI before edit_text_OpeningFcn gets called.  An
+%      applied to the GUI before check_boz_OpeningFcn gets called.  An
 %      unrecognized property name or invalid value makes property application
-%      stop.  All inputs are passed to edit_text_OpeningFcn via varargin.
+%      stop.  All inputs are passed to check_boz_OpeningFcn via varargin.
 %
 %      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
 %      instance to run (singleton)".
 %
 % See also: GUIDE, GUIDATA, GUIHANDLES
 
-% Edit the above text to modify the response to help edit_text
+% Edit the above text to modify the response to help check_boz
 
-% Last Modified by GUIDE v2.5 26-Feb-2022 08:30:53
+% Last Modified by GUIDE v2.5 27-Feb-2022 09:37:42
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
 gui_State = struct('gui_Name',       mfilename, ...
                    'gui_Singleton',  gui_Singleton, ...
-                   'gui_OpeningFcn', @edit_text_OpeningFcn, ...
-                   'gui_OutputFcn',  @edit_text_OutputFcn, ...
+                   'gui_OpeningFcn', @check_boz_OpeningFcn, ...
+                   'gui_OutputFcn',  @check_boz_OutputFcn, ...
                    'gui_LayoutFcn',  [] , ...
                    'gui_Callback',   []);
 if nargin && ischar(varargin{1})
@@ -44,26 +44,26 @@ end
 % End initialization code - DO NOT EDIT
 
 
-% --- Executes just before edit_text is made visible.
-function edit_text_OpeningFcn(hObject, eventdata, handles, varargin)
+% --- Executes just before check_boz is made visible.
+function check_boz_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-% varargin   command line arguments to edit_text (see VARARGIN)
+% varargin   command line arguments to check_boz (see VARARGIN)
 
-% Choose default command line output for edit_text
+% Choose default command line output for check_boz
 handles.output = hObject;
 
 % Update handles structure
 guidata(hObject, handles);
 
-% UIWAIT makes edit_text wait for user response (see UIRESUME)
+% UIWAIT makes check_boz wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
 
 % --- Outputs from this function are returned to the command line.
-function varargout = edit_text_OutputFcn(hObject, eventdata, handles) 
+function varargout = check_boz_OutputFcn(hObject, eventdata, handles) 
 % varargout  cell array for returning output args (see VARARGOUT);
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -73,18 +73,21 @@ function varargout = edit_text_OutputFcn(hObject, eventdata, handles)
 varargout{1} = handles.output;
 
 
-% --- Executes on button press in pushbutton1.
-function pushbutton1_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton1 (see GCBO)
+% --- Executes on button press in checkbox1.
+function checkbox1_Callback(hObject, eventdata, handles)
+% hObject    handle to checkbox1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-state = get(handles.togglebutton1, 'Value');
+% Hint: get(hObject,'Value') returns toggle state of checkbox1
+status = get(handles.checkbox1, 'Value');
 
-if state == 1
-    string_to_show = get(handles.edit1, "String");
-    set(handles.text2, "String", string_to_show);
+if status == 1
+    set(handles.edit1, "String", "Marked");
+else
+    set(handles.edit1, "String", "Unmarked");
 end
+
 
 
 
@@ -108,12 +111,3 @@ function edit1_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
-
-% --- Executes on button press in togglebutton1.
-function togglebutton1_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton1
